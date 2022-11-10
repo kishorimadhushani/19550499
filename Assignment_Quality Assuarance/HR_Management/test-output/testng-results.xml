@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-10T09:57:54 IST" name="Default suite" finished-at="2022-11-10T09:58:36 IST" duration-ms="42415">
+    <groups>
+    </groups>
+    <test started-at="2022-11-10T09:57:54 IST" name="Default test" finished-at="2022-11-10T09:58:36 IST" duration-ms="42415">
+      <class name="First_Framework.TraineeTestCase">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:First_Framework.TraineeTestCase@d737b89]" started-at="2022-11-10T09:57:54 IST" name="setUp" finished-at="2022-11-10T09:57:58 IST" duration-ms="4078" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testUntitledTestCase()[pri:0, instance:First_Framework.TraineeTestCase@d737b89]" started-at="2022-11-10T09:57:58 IST" name="testUntitledTestCase" finished-at="2022-11-10T09:58:36 IST" duration-ms="37870" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUntitledTestCase -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:First_Framework.TraineeTestCase@d737b89]" started-at="2022-11-10T09:58:36 IST" name="tearDown" finished-at="2022-11-10T09:58:36 IST" duration-ms="406" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- First_Framework.TraineeTestCase -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
