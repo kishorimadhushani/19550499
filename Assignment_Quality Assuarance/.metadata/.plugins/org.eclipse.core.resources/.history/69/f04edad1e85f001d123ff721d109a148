@@ -1,0 +1,97 @@
+package First_Framework;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.testng.annotations.*;
+import static org.testng.Assert.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
+import java.time.Duration;
+
+public class TestCase_01 {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+  private JavascriptExecutor js;
+
+  @BeforeClass(alwaysRun = true)
+  public void setUp() throws Exception {
+    System.setProperty("webdriver.chrome.driver", "");
+    driver = new ChromeDriver();
+    baseUrl = "https://www.google.com/";
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+    js = (JavascriptExecutor) driver;
+  }
+
+  @Test
+  public void testUntitledTestCase() throws Exception {
+    driver.get("https://demo.actiplans.com/login.do");
+    driver.findElement(By.xpath("//a[@id='loginButton']/div")).click();
+    driver.get("https://demo.actiplans.com/user/my_schedule.do");
+    driver.findElement(By.id("container_employees")).click();
+    driver.get("https://demo.actiplans.com/administration/userlist.do");
+    driver.findElement(By.linkText("2")).click();
+    driver.findElement(By.linkText("Reports")).click();
+    driver.get("https://demo.actiplans.com/reports/reports.do");
+    driver.get("https://demo.actiplans.com/reports/ltr.do");
+    driver.findElement(By.id("container_corporate_schedule")).click();
+    driver.get("https://demo.actiplans.com/administration/leave_time_planning.do");
+    driver.findElement(By.xpath("//table[@id='leaveTimePlanningTable']/tbody/tr[6]/td[43]")).click();
+    driver.findElement(By.id("ext-gen40")).click();
+    driver.findElement(By.xpath("//table[@id='topnav']/tbody/tr/td[3]/a/div[2]")).click();
+    driver.get("https://demo.actiplans.com/user/my_schedule.do");
+    driver.findElement(By.xpath("//table[@id='myScheduleTable']/tbody/tr[4]/td[61]")).click();
+    driver.findElement(By.id("leaveTimeRequestDialog_userComment")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='This past leave does not affect current PTO Balance'])[1]/following::div[2]")).click();
+    driver.findElement(By.id("logoutLink")).click();
+    driver.get("https://demo.actiplans.com/login.do");
+    driver.findElement(By.id("username")).clear();
+    driver.findElement(By.id("username")).sendKeys("admin");
+  }
+
+  @AfterClass(alwaysRun = true)
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

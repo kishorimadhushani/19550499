@@ -1,0 +1,9 @@
+web.URL=https://demo.actiplans.com/login.do
+web.adminUsername=admin
+web.adminPassword=manager
+web.traineeUsername=trainee
+web.traineePassword=trainee
+web.chromeDriverPath=chromedriver.exe
+db.user=root
+db.password=password
+db.url=localhost
